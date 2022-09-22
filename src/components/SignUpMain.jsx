@@ -6,8 +6,8 @@ import axios from 'axios'
 // import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
 import SignUp from './SignUp';
+import RAILS_BASE_URL from './baseurl' 
 
-const BASE_URL_USERS = 'http://localhost:3000/users'
 
 class SignUpMain extends React.Component{
 
@@ -25,7 +25,7 @@ class SignUpMain extends React.Component{
 
     setNewUser = async(object) => {
         try {
-            const res = await axios.post(BASE_URL_USERS, {
+            const res = await axios.post(`${RAILS_BASE_URL}/users`, {
                 email: object.email, 
                 screen_name: object.screen_name, 
                 password: object.password, 

@@ -30,8 +30,8 @@ import Comments from "./Comments";
 import UserLocation from './UserLocation';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import RAILS_BASE_URL from './baseurl' 
 
-const BASE_URL = 'http://localhost:3000'
 
 class Homepage extends React.Component {
 
@@ -76,7 +76,7 @@ class Homepage extends React.Component {
   getChatRoom = (room) => {
     // get the chat room id from 'all chat rooms' list
     //room here is an object
-    this.getRoomData(room.id)  //I'm not sure if this is needed
+    this.getRoomData(room.id)  
     this.setState({
       room: room
 
@@ -99,7 +99,7 @@ class Homepage extends React.Component {
   getRoomData = (id) => {
 
 
-    fetch(`http://localhost:3000/chatrooms/${id}.json`)
+    fetch(`${RAILS_BASE_URL}/chatrooms/${id}.json`)
       .then(response => response.json())
       .then(result => {
         console.log('The response from the chatroom fetch was ', result)
@@ -112,25 +112,14 @@ class Homepage extends React.Component {
         })
       })
 
-    // const res = await axios.get(`http://localhost:3000/chatrooms/${id}.json}`)
-    // console.log(res);
-    // this.setState({
-    //   currentRoom: {
-    //     chatroom: res.data,
-    //     users: res.data.users,
-    //     messages: res.data.messages
-    //   } //end currentRoom
-    // })
-
-
+    
 
   } //end getRoomData
 
   
 
   updateAppStateRoom = (newroom) => { //newroom is an object we get back from the ChatroomWebSocket after a message has been posted.
-    console.log('The new room recieved by udpateAppStateRoom is', newroom);
-
+    
     this.setState({
 
       currentRoom: {
@@ -154,7 +143,7 @@ class Homepage extends React.Component {
 
     let token = "Bearer " + jwt;
     axios.defaults.headers.common['Authorization'] = token;
-    axios.get(`${BASE_URL}/users/current`)
+    axios.get(`${RAILS_BASE_URL}/users/current`)
       .then(res => {
         this.setState({ currentUser: res.data })
         //   console.log('LoginMain', res.data) // for test

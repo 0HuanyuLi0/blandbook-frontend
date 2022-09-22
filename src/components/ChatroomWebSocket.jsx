@@ -1,6 +1,15 @@
 import React from "react";
 import ActionCable from 'action-cable-react-jwt';
 
+
+let RAILS_BASE_WS;
+if( process.env.NODE_ENV === 'development'){
+
+  RAILS_BASE_WS = 'ws://localhost:3000';
+} else {
+  RAILS_BASE_WS = 'ws://blandbook-server.herokuapp.com';
+}
+
 class ChatroomWebSocket extends React.Component {
 
 
@@ -11,7 +20,7 @@ class ChatroomWebSocket extends React.Component {
 
 
 
-        CableApp.cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+        CableApp.cable = ActionCable.createConsumer(`${RAILS_BASE_WS}/cable`)
 
         //This is needed to render data on the ChatroomShow component. It grabs the room id_#, 
         this.props.getRoomData(this.props.currentRoom.id)

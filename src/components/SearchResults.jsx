@@ -6,6 +6,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import '../css/search.css'
+import RAILS_BASE_URL from './baseurl' 
+
 
 const ResultsModal = (props) => {
     return (
@@ -65,11 +67,11 @@ const ResultsModal = (props) => {
 
 
 const followAction = async (followId, props) => {
-    await axios.post(`http://localhost:3000//followers/${props.currentUser.id}/${followId}`).then(props.onHide).then(window.location.reload())
+    await axios.post(`${RAILS_BASE_URL}/followers/${props.currentUser.id}/${followId}`).then(props.onHide).then(window.location.reload())
 }
 
 const unfollowAction = async (followId, props) => {
-    await axios.delete(`http://localhost:3000//followers/${props.currentUser.id}/${followId}`).then(props.onHide).then(window.location.reload())
+    await axios.delete(`${RAILS_BASE_URL}/followers/${props.currentUser.id}/${followId}`).then(props.onHide).then(window.location.reload())
 }
 
 

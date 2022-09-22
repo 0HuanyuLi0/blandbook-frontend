@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-
+import RAILS_BASE_URL from './baseurl' 
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 
@@ -34,7 +34,7 @@ class CreatePost extends React.Component {
     handleSubmit = async (e) => {
         e.preventDefault()
         if (this.state.post) {
-            const res = await axios.post(`http://localhost:3000/posts`, {
+            const res = await axios.post(`${RAILS_BASE_URL}/posts`, {
                 post: {
                     user_id: this.props.currentUser.id,
                     title: this.state.post,

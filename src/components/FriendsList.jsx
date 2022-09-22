@@ -3,6 +3,8 @@ import React from "react";
 import Friend from "./Friend";
 import '../css/friends.css'
 import Button from 'react-bootstrap/Button';
+import RAILS_BASE_URL from './baseurl' 
+
 class FriendsList extends React.Component {
 
     state = {
@@ -26,7 +28,7 @@ class FriendsList extends React.Component {
 
     getFriendsList = async () => {
 
-        const res = await axios.get(`http://localhost:3000/friends/${this.props.currentUser.id}.json`)
+        const res = await axios.get(`${RAILS_BASE_URL}/friends/${this.props.currentUser.id}.json`)
 
 
         this.setState({
@@ -43,7 +45,7 @@ class FriendsList extends React.Component {
         console.log('Unfollow clicked', userId, followerId);
 
 
-        await axios.delete(`http://localhost:3000//followers/${userId}/${followerId}`).then(response => {
+        await axios.delete(`${RAILS_BASE_URL}/followers/${userId}/${followerId}`).then(response => {
             //delete then do another axios reques
             this.getFriendsList()
         }).then(response => {
@@ -56,7 +58,7 @@ class FriendsList extends React.Component {
         console.log('Unfollow clicked', userId, followId);
 
 
-        await axios.post(`http://localhost:3000//followers/${userId}/${followId}`).then(response => {
+        await axios.post(`${RAILS_BASE_URL}/followers/${userId}/${followId}`).then(response => {
             //add then do another axios reques
             this.getFriendsList()
         }).then(response => {

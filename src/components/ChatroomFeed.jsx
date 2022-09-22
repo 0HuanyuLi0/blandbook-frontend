@@ -37,11 +37,7 @@ class ChatroomFeed extends React.Component {
            
             this.showMessages(this.props.allMessages)
             this.updateMessages()
-                // const newMessages = this.props.messages.map(message=> console.log('Message', message))
-                
-                // this.setState({
-                //     totalMessages: newMessages
-                // })
+              
             
         }else{
             console.log('Loading');

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import RAILS_BASE_URL from './baseurl' 
 
 class ChatAvatar extends React.Component {
 
@@ -15,7 +16,7 @@ class ChatAvatar extends React.Component {
         let avatar;
         try {
     
-            const resp = await axios.get(`http://localhost:3000/chatrooms/avatar/${this.props.sender}.json`)
+            const resp = await axios.get(`${RAILS_BASE_URL}/chatrooms/avatar/${this.props.sender}.json`)
     
             
             avatar =resp.data.avatar;

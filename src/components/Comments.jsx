@@ -7,10 +7,10 @@
 import React from "react";
 import axios from "axios";
 import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
-
+import RAILS_BASE_URL from './baseurl' 
 import NewComment from "./NewComment";
 
-const BASE_URL_SINGLE_POST = 'http://localhost:3000/posts/'
+
 
 
 class Comments extends React.Component {
@@ -27,19 +27,11 @@ class Comments extends React.Component {
     }
 
     componentDidMount() {
-        // const newLocal = this;
-        // console.log('componentDidMount', this.props.match.params.postId) // for test
+        
 
-        // this.setState({
-        //     postId: this.props.match.params.postId,
-        // })
-        // console.log(this.props.match.params.postId);
-        // this.state.postId &&
-        // console.log('componentDidMount state', this.state.postId) //null
-
-        // setInterval(this.getCommentDetails, 2000);
+       
         this.getCommentDetails()
-        // console.log(this.props.history.location.pathname.split('/').slice(-1)[0]);
+        
     }
 
     componentDidUpdate(){
@@ -50,9 +42,9 @@ class Comments extends React.Component {
 
     getCommentDetails = async() => {
         try{
-            // const res = await axios.get(BASE_URL_SINGLE_POST + this.props.match.params.postId + '.json')
-            const res = await axios.get(BASE_URL_SINGLE_POST + this.state.postId + '.json')
-            // console.log('getCommentDetails', res.data); // for test
+            
+            const res = await axios.get(`${RAILS_BASE_URL}/${this.state.postId}.json`)
+            
             this.setState({
                 postId:this.props.match.params.postId,
                 commentDetails: res.data.comments.reverse(),
@@ -67,17 +59,10 @@ class Comments extends React.Component {
         }
     }
 
-    // fetchCommentAgain = async() => {
-    //     const res = await axios.get(BASE_URL_SINGLE_POST + this.state.postId + '.json')
-
-    //     this.setState({
-    //         commentDetails: res.data.comments.reverse()
-    //     })
-    // }
-
+    
     handleDelete = async(id) => {
         try{
-            const res = await axios.delete(`http://localhost:3000/comments/${id}`)
+            const res = await axios.delete(`${RAILS_BASE_URL}/comments/${id}`)
             // console.log('handleDelete', res.data); // for test
             this.getCommentDetails()
 

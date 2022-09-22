@@ -3,6 +3,10 @@ import axios from "axios";
 import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
 import ChatroomCreate from "./ChatroomCreate";
 import Button from 'react-bootstrap/Button';
+import RAILS_BASE_URL from './baseurl'
+
+
+
 class AllChatRooms extends React.Component {
 
     state = {
@@ -12,9 +16,8 @@ class AllChatRooms extends React.Component {
     }
 
     
-
     getAllRooms = async (user_id) => {
-        const res = await axios.get(`http://localhost:3000/users/${user_id}/all_chat_rooms`)
+        const res = await axios.get(`${ RAILS_BASE_URL}/users/${user_id}/all_chat_rooms`)
 
         this.setState({
             rooms: res.data,
@@ -25,7 +28,6 @@ class AllChatRooms extends React.Component {
     }
 
     handleClick = (room) =>{
-        
         this.props.clickedRoom(room)
     }
   
@@ -51,7 +53,7 @@ class AllChatRooms extends React.Component {
                         )}
                     <li> 
                         {
-                            <Button className="newRoom_btn" variant="warning" size="sm" href={`http://localhost:3001/#/newroom`}>Add New </Button>
+                            <Button className="newRoom_btn" variant="warning" size="sm" href={`${RAILS_BASE_URL}/#/newroom`}>Add New </Button>
                         // <Link to={`/newroom/`}>Add new</Link>
                         }
                         
