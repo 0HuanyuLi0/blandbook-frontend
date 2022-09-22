@@ -3,6 +3,14 @@ import axios from "axios";
 import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
 import ChatroomCreate from "./ChatroomCreate";
 import Button from 'react-bootstrap/Button';
+
+let RAILS_BASE_URL;
+if( process.env.NODE_ENV === 'development'){
+  RAILS_BASE_URL = 'http://localhost:3000';
+} else {
+  RAILS_BASE_URL = 'https://blandbook-server.herokuapp.com/';
+}
+
 class AllChatRooms extends React.Component {
 
     state = {
@@ -14,7 +22,7 @@ class AllChatRooms extends React.Component {
     
 
     getAllRooms = async (user_id) => {
-        const res = await axios.get(`http://localhost:3000/users/${user_id}/all_chat_rooms`)
+        const res = await axios.get(`${RAILS_BASE_URL}/users/${user_id}/all_chat_rooms`)
 
         this.setState({
             rooms: res.data,

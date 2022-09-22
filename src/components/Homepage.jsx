@@ -31,7 +31,14 @@ import UserLocation from './UserLocation';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const BASE_URL = 'http://localhost:3000'
+// const BASE_URL = 'http://localhost:3000'
+
+let BASE_URL;
+if( process.env.NODE_ENV === 'development'){
+  BASE_URL = 'http://localhost:3000';
+} else {
+  BASE_URL = 'https://blandbook-server.herokuapp.com/';
+}
 
 class Homepage extends React.Component {
 
