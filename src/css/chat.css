@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 html{
   font-size: 12pt;
 }
@@ -6,7 +8,7 @@ html{
 
 .chatroom {
   /* the entire thing */
-  background-color:  rgba(251, 196, 183, 0.6);
+  background-color:  rgb(181, 178, 178);
   border: 2px solid black;
   border-radius: 5%;
   padding: 1%;
@@ -14,13 +16,43 @@ html{
   bottom: 0;
   left:15%;
   z-index: 50;
-  max-width: 15vw;
+  min-width: 20vw;
   height: 80%;
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  text-align: center;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.4);
+  font-family: 'Roboto', sans-serif;
 
 
+}
+.chatroomTopRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  border: 3px solid black;
+ 
+  
+  
+}
+
+
+
+.closeButton{
+  height:30px;
+  align-self: center;
+  width: 30px;
+  margin-top: 10px;
+}
+
+.closeButton:hover{
+  cursor:pointer;
+  height: 35px;
 }
 
 .chatroom_title {
@@ -47,22 +79,30 @@ html{
 #chatroom_members {  
   list-style: none;
   
+  
  
 }
 
 /* the LI */
+.chatMembers{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 
+}
 
 .chatroom_sidebar{
-  max-width: 20%;
+  width: 100%;
   display:  flex;
   flex-direction: row;
+  
   
 }
 
 .chatMembers_sidebar ul{
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   
   
 }
@@ -70,6 +110,8 @@ html{
 
 #chatroom_members{
   display: flex;
+  justify-content: space-around;
+  margin: 10px;
 }
 
 .chatroom_sidebar h4{
@@ -81,26 +123,27 @@ html{
 }
 
 #chat_message{
-    height: auto;
-    max-width: 40vw ;
+    
+    max-width: 20vw ;
     display: flex;
     margin: 2vh;
     border-radius: 10px;
     padding: 20px;
-    text-align: start;
-    
+   
 
 }
 
 
 .user_message {
     background-color: rgb(165, 213, 233);
+    box-shadow: 2px 4px #fff;
     
 }
 
 .other_message {
 
     background-color: #fff;
+    box-shadow: 2px 4px rgb(165, 213, 233);
    
 
 }
@@ -148,7 +191,34 @@ html{
   }
   
 .chatroomFeed_container{
-  background-color: rgba(251, 196, 183, 0.6);
+  background-color:  rgb(181, 178, 178);
+}
+
+/* Show or hide the chat */
+
+#visible{
+  visibility:visible;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    position: absolute;
+    left: 0;
+   
+    
+  }
+
+  to {
+    position: absolute;
+    left: 15%;
+    
+  }
+}
+
+#hidden{
+  visibility:hidden;
 }
 
 

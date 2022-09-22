@@ -13,7 +13,7 @@ class FriendsList extends React.Component {
     }
 
     componentDidMount() {
-        console.log('Friends list has mounted');
+        // console.log('Friends list has mounted');
         // this.getFollowerList(this.props.userId)
         if (this.state.loading === true) {
             this.getFriendsList()

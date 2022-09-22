@@ -24,7 +24,7 @@ class AllChatRooms extends React.Component {
             loading:false
         })
 
-        console.log(res.data);
+       
     }
 
     handleClick = (room) =>{
@@ -53,7 +53,7 @@ class AllChatRooms extends React.Component {
                         )}
                     <li> 
                         {
-                            <Button className="newRoom_btn" variant="warning" size="sm" href={`${RAILS_BASE_URL}/#/newroom`}>Add New </Button>
+                            <Button className="newRoom_btn" variant="warning" size="sm" href={`/#/newroom`}>Add New </Button>
                         // <Link to={`/newroom/`}>Add new</Link>
                         }
                         

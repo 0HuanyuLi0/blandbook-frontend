@@ -20,7 +20,7 @@ class ChatAvatar extends React.Component {
     
             
             avatar =resp.data.avatar;
-            console.log(avatar);
+           
             this.setState({
                 avatar: avatar
             })
