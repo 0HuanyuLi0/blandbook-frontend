@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  /* border: 1px solid red; */
+}
+
+body {
+  background-color: rgb(254, 234, 229);
+}
+
+.App {
+  background-color: rgb(251, 196, 183);
+  width: 98%;
+  margin: 1vw auto;
+  border-radius: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  border-radius: 20px;
+}
+
+nav a {
+  background: inherit;
+  display: block;
+  text-align: center;
+  margin: 15px auto;
+}
+
+nav span {
+  background: inherit;
+}
+
+nav {
+  /* border: 1px solid red; */
+  background: inherit;
+  border-radius: 20px;
+  display: block;
+  width: 30px;
+  margin: 30px 10px;
+}
+
+main {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  background-color: white;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+
+nav a{
+  color: black;
+}
+
+p{
+  font-size: 12px;
+}
+
+.material-symbols-outlined{
+  vertical-align: middle;
+}
+

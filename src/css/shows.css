@@ -1,0 +1,61 @@
+
+.chat_container{
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.post_container{
+    width: 50%;
+    /* border: 1px solid green; */
+}
+
+.all_chat_rooms ul {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    align-items: baseline;
+    overflow-x: scroll;
+    /* justify-content: space-evenly; */
+}
+
+.all_chat_rooms li{
+    display: block;
+    width: 60px;
+    text-align: center;
+}
+
+.newRoom_btn{
+    display: block;
+    width: 80px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+   
+}
+
+.all_chat_rooms img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.all_chat_rooms p {
+    font-size: 8px;
+}
+
+.chatroom ul{
+    list-style: inside;
+    padding: 5px;
+    font-size: 10px;
+}
+
+.login_form{
+    width: 25%;
+    text-align: center;
+}
+
+.signup_form{
+    width: 25%;
+    text-align: center;
+}
+

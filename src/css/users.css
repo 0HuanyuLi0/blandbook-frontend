@@ -1,0 +1,33 @@
+
+.user_location{
+    width: 35vw;
+    height: 50vh;
+}
+
+.mapMarker {
+    color: #f06292;
+    background-color: #f06292;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+}
+
+.mapMarker:hover {
+    color: #961bd9;
+    background-color: #961bd9;
+    transform: scale(1.2);
+}
+
+.mapMarker .details {
+    display: none;
+}
+
+.mapMarker:hover .details{
+    display: inline-block;
+}
+
+
+
+
+
