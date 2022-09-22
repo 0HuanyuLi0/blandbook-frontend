@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import ChatroomWebSocket from "./ChatroomWebSocket";
 import ChatroomShow from "./ChatroomShow";
+import RAILS_BASE_URL from './baseurl' 
 
 class ChatRoom extends React.Component {
     // for testing only, need to apply websocket
@@ -13,7 +14,7 @@ class ChatRoom extends React.Component {
     }
 
     getMessages = async (room_id) => {
-        const res = await axios.get(`http://localhost:3000/chatrooms/${room_id}`)
+        const res = await axios.get(`${RAILS_BASE_URL}/chatrooms/${room_id}`)
         console.log(res.data.messages);
 
         this.setState({
@@ -49,11 +50,7 @@ class ChatRoom extends React.Component {
 
                 </ul>
 
-                {/* <ChatroomShow /> */}
-                {/* Not sure what props need */}
-
-
-
+               
             </div>
         )
 

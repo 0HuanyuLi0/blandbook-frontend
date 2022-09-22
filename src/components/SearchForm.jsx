@@ -1,7 +1,7 @@
 
 import React from "react";
 import axios from "axios";
-
+import RAILS_BASE_URL from './baseurl' 
 
 class SearchForm extends React.Component {
 
@@ -14,7 +14,7 @@ class SearchForm extends React.Component {
         // this.props.results(this.state.results) 
         // this.props.results(this.state.query) // test only
         e.preventDefault()
-        const res = await axios.get(`http://localhost:3000/search/${this.state.query}`)
+        const res = await axios.get(`${RAILS_BASE_URL}/search/${this.state.query}`)
 
 
    

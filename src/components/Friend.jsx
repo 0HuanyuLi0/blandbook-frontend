@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import FriendsList from "./FriendsList";
 import '../css/friends.css'
-
+import RAILS_BASE_URL from './baseurl' 
 class Friend extends React.Component{
 
     state ={
@@ -15,47 +15,13 @@ class Friend extends React.Component{
     updateFriends = (resp) => {
         console.log('Response is', resp);
     }
-    // componentDidMount(){
-    //     if(this.props.details.followers){
-
-    //         const newArr = this.props.details.followers.map((follower => {
-    //             follower.push(newArr)
-    //         }))
-    //         this.setState({
-    //             followers: newArr
-    //         })
-            
-    //     }
-        
-           
-       
-    // }
-
-    // componentDidUpdate(prevProps){
-    //     console.log('The prev props are:', prevProps.details.followers);
-    //     if(this.props.details.followers && prevProps.details.followers) {
-
-    //         if(this.props.details.followers.length !== prevProps.details.followers.length){
-    //             //     this.showMessages(this.props.allMessages)
-    //             // }else{
-    //                 this.showFollow()
-    //                 console.log('Loading');
-    //             } else{
-    //              console.log('No change');
-    //             }
-        
-
-    //     }
-        
-        
-    // }
-
+    
 
     unfollow = async(userId, followerId) => {
         console.log('Unfollow clicked', userId, followerId);
 
 
-         await axios.delete(`http://localhost:3000//followers/${userId}/${followerId}`).then(response => {
+         await axios.delete(`${RAILS_BASE_URL}/followers/${userId}/${followerId}`).then(response => {
             //delete then do another axios reques
             this.props.getFriendsList()
          })
@@ -70,14 +36,7 @@ class Friend extends React.Component{
 
     }
 
-    // componentDidUpdate(prevState){
-    //     if(this.state && this.state.following !== prevState.state.following){
-    //         this.setState({
-    //             loading: true
-    //         })
-    //     }   
-        
-    // }
+    
 
     showFollow= () => {
         if(this.props.details.followers && !this.props.following ){

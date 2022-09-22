@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import '../css/shows.css'
+import RAILS_BASE_URL from './baseurl' 
 
-const BASE_URL = 'http://localhost:3000'
 
 class Login extends React.Component{
     state = {
@@ -28,7 +28,7 @@ class Login extends React.Component{
     const request = {'email': this.state.email, 'password': this.state.password}
 
     //do an axios post request where we can send through the user details to rails and login
-    axios.post(`${BASE_URL}/user_token`, {auth: request})
+    axios.post(`${RAILS_BASE_URL}/user_token`, {auth: request})
     .then(result => {
       localStorage.setItem("jwt", result.data.jwt)
       // Set axios default headers to have an authorization key.

@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
 import Form from 'react-bootstrap/Form'
+import RAILS_BASE_URL from './baseurl' 
 
-const BASE_URL = 'http://localhost:3000'
 
 class ChatroomCreate extends React.Component {
 
@@ -26,7 +26,7 @@ class ChatroomCreate extends React.Component {
             owner: this.props.currentUser.id
         }
         try{
-            const resp = await axios.post(BASE_URL +`/chatrooms.json`, data)
+            const resp = await axios.post(`${RAILS_BASE_URL}/chatrooms.json`, data)
             
  
         } catch (err){

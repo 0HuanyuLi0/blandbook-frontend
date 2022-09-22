@@ -2,15 +2,14 @@
 import React from 'react';
 import axios from "axios";
 import GoogleMapReact from 'google-map-react';
-
 import '../css/users.css';
 import '../App.css';
 
 import Icons from './Icons';
-
+import RAILS_BASE_URL from './baseurl' 
 
 const GMAPS_API_KEY = 'AIzaSyADkhbnJGwJi7ykabSqHuwM9ibeSwI0NkE';
-const BASE_URL_ALL_USERS = 'http://localhost:3000/users.json'
+
 
 // Marker Icon on the map
 function MyMarker(text){
@@ -82,7 +81,7 @@ class UserLocation extends React.Component {
 
     fetchUsers = async() => {
         try{
-            const res = await axios.get(BASE_URL_ALL_USERS);
+            const res = await axios.get(`${RAILS_BASE_URL}/users.json`);
             console.log('fetchUsers', res.data);
             this.setState({loading: false, users: res.data});
 
@@ -100,16 +99,6 @@ class UserLocation extends React.Component {
         console.log(clickUserInfo.location.split(' ').slice(-3).join(', '));
         this.setState({clickUser: clickUserInfo});
     }
-
-    // //anywhere on the map will give lat and lng
-    // handleMapClick = (ev) => {
-    //     console.log('handleMapClick', ev);
-    // }
-
-
-
-
-
 
 
     render(){

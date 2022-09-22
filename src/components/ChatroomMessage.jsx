@@ -18,8 +18,7 @@ class ChatroomMessage extends React.Component{
 
    
        
-    
-    
+       
 
     render(){
 

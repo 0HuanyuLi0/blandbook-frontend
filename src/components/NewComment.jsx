@@ -1,8 +1,8 @@
 
 import React from "react";
 import axios from "axios";
+import RAILS_BASE_URL from './baseurl' 
 
-const BASE_URL_CREATE_COMMENT = 'http://localhost:3000/comments'
 
 class NewComment extends React.Component {
 
@@ -25,7 +25,7 @@ class NewComment extends React.Component {
         // console.log('NewComment handleSubmit', this.state.newcontent); // for test
 
         try {
-            const res = await axios.post(BASE_URL_CREATE_COMMENT, {
+            const res = await axios.post(`${RAILS_BASE_URL}/comments`, {
                 content: this.state.newcontent,
                 like: this.state.like,
                 dislike: this.state.dislike,

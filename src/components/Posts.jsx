@@ -9,6 +9,8 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 import '../css/posts.css'
+import RAILS_BASE_URL from './baseurl' 
+
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
 // TODO: Posts Sort?
@@ -32,8 +34,8 @@ class Posts extends React.Component {
     
 
     getPosts = async () => {
-        const res = await axios.get(`http://localhost:3000/posts.json`)
-        const response = await axios.get(`http://localhost:3000/friends/${this.props.currentUser.id}.json`)
+        const res = await axios.get(`${RAILS_BASE_URL}/posts.json`)
+        const response = await axios.get(`${RAILS_BASE_URL}/friends/${this.props.currentUser.id}.json`)
 
         this.setState({
             postsArr: res.data,
@@ -70,7 +72,7 @@ class Posts extends React.Component {
                 [fc]: newNumber
             }
         }
-        const res = await axios.patch(`http://localhost:3000/posts/${post_id}`, adjust)
+        const res = await axios.patch(`${RAILS_BASE_URL}/posts/${post_id}`, adjust)
 
         this.setState({
             [fc]: { ...this.state[fc], [post_id]: !currentState }
@@ -83,51 +85,12 @@ class Posts extends React.Component {
 
 
 
-    // updateRenderData = (post_id) => {
-
-    //     let newArr = []
-
-    //     this.state.postsArr.forEach(post => {
-    //         if (post.id !== post_id) {
-    //             newArr.push(post)
-    //         }
-    //     })
-
-    //     this.setState({
-    //         postsArr: newArr
-    //     })
-    // }
-
     handleDelete = async (id) => {
-        const res = await axios.delete(`http://localhost:3000/posts/${id}`)
+        const res = await axios.delete(`${RAILS_BASE_URL}/posts/${id}`)
         this.getPosts()
     }
 
     
-
-    // checkFollow = (posterId) => {
-    //     const following = this.state.userDetails.followers
-   
-    //     following.forEach(follow => {
-            
-      
-    //      if(follow.id ===  posterId){
-    //             console.log('Returning true');
-    //             return true
-                 
-    //         } else{
-    //             console.log('Returning false');
-    //             return false
-                
-    //         }
-            
-        
-    //     });
-
-
-    // }
-
-
 
     render() {
         return (
