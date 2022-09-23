@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../css/shows.css'
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 class Login extends React.Component{

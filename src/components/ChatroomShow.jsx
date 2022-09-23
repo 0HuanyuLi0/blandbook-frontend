@@ -4,7 +4,7 @@ import '../css/chat.css';
 import ChatroomWebSocket from "./ChatroomWebSocket";
 import ChatroomFeed from "./ChatroomFeed";
 import { Button } from "react-bootstrap";
-import RAILS_BASE_URL from './baseurl'
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 class ChatroomShow extends React.Component {
 
     state = {

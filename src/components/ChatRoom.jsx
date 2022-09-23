@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import ChatroomWebSocket from "./ChatroomWebSocket";
 import ChatroomShow from "./ChatroomShow";
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 class ChatRoom extends React.Component {
     // for testing only, need to apply websocket

@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 import '../css/posts.css'
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -118,7 +118,9 @@ class Posts extends React.Component {
                                 <br />
                                 {this.props.currentUser
                                     &&
-                                    <Link to={`/comments/${post.id}`}>Comments</Link>
+                                    <Link to={`/comments/${post.id}`}>
+                                        <Button variant="primary" size="sm">Comments</Button>
+                                    </Link>
                                 }
 
                                 {' | '}
@@ -134,27 +136,7 @@ class Posts extends React.Component {
                             
 
                         </ListGroup.Item>
-                        // <li key={post.id}>
-                        //     <p>{post.title}</p>
-                        //     <p>like:{post.like} <button className="material-symbols-outlined" onClick={(e) => this.handleClick(post.id, post.like, index, 'like', e)}>thumb_up</button> | dislike:{post.dislike} <button className="material-symbols-outlined" onClick={(e) => this.handleClick(post.id, post.dislike, index, 'dislike', e)}>thumb_down</button></p>
-                        //     <p>create time:{post.created_at}</p>
-                        //     <p>created by:{post.user.screen_name}</p>
-
-                        //     {this.props.currentUser
-                        //         &&
-                        //         <Link to={`/comments/${post.id}`}>Comments</Link>
-                        //     }
-
-                        //     {' | '}
-                        //     {
-                        //         this.props.currentUser.id === post.user_id &&
-                        //         <Button variant="danger" size="sm" onClick={() => this.handleDelete(post.id)}>Delete</Button>
-                        //     }
-                        //     <br />
-
-                        //     <hr />
-                        //     <br />
-                        // </li>
+                        
                     )}
 
                 </ul>

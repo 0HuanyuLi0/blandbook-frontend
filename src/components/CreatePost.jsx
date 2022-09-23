@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 

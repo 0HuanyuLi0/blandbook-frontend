@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 class ChatAvatar extends React.Component {
 

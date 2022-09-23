@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import '../css/search.css'
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 const ResultsModal = (props) => {
@@ -43,7 +43,7 @@ const ResultsModal = (props) => {
                         if (rlt.title) {
                             return (
                                 <ListGroup.Item key={rlt.id} action variant="warning" className="center rlts-font" dangerouslySetInnerHTML={{__html: rlt.title.substring(0,50) + " ..."}} 
-                                href={`http://localhost:3001/#/comments/${rlt.id}`}
+                                href={`${REACT_BASE_URL}/comments/${rlt.id}`}
                                 onClick={props.onHide}
                                 >
                                 </ListGroup.Item>

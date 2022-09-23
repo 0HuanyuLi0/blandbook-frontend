@@ -3,7 +3,7 @@ import React from "react";
 import Friend from "./Friend";
 import '../css/friends.css'
 import Button from 'react-bootstrap/Button';
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 class FriendsList extends React.Component {
 

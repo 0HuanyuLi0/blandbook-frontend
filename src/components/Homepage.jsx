@@ -31,7 +31,7 @@ import Comments from "./Comments";
 import UserLocation from './UserLocation';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 class Homepage extends React.Component {

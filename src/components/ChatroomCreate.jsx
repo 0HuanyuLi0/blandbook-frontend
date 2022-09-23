@@ -3,7 +3,7 @@ import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
-import RAILS_BASE_URL from './baseurl'; 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl'; 
 import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
 
 
