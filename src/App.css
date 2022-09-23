@@ -75,3 +75,37 @@ p{
   vertical-align: middle;
 }
 
+.visible{
+   animation: arrivein 2s;
+}
+  @keyframes arrivein {
+    from {
+      margin-left: 0%;
+      width: 0%;
+          
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+
+  .invisible{
+    animation: arriveOut 2s;
+ }
+
+
+ @keyframes arriveOut {
+  from {
+    margin-left: 0%;
+    width: 100%;
+        
+  }
+
+  to {
+    margin-left: 0%;
+    width: 0%;
+  }
+}

@@ -72,7 +72,7 @@ class ChatroomCreate extends React.Component {
                     <p class="help-block">Chose a thumbnail image for your chat.</p>
                 </div>
                 
-                <submit><button type="submit" className="btn btn-primary">Create</button></submit>
+                <submit><button type="submit" className="btn btn-primary" id="create_chat">Create</button></submit>
                 </Form>
             </div>
         )
