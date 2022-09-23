@@ -5,9 +5,9 @@
 
 **Authors**:
 
-- Huanyu Daniel Li (github link)
-- Lei Huawen (github link)
-- Brendan Tuckerman (github link)
+- Huanyu Daniel Li [github link](https://github.com/0HuanyuLi0)
+- Lei Huawen [github link](https://github.com/hwlei888)
+- Brendan Tuckerman [github link](https://github.com/MrMaverick79)
 
 A project as part of the General Assembly Software Intensive
 
@@ -17,6 +17,7 @@ Blandbook is a social media platofrm that pulls together many of the features of
 
 
 **Features**:
+
 
 
 
@@ -57,20 +58,30 @@ Because we are not using HTTP requests, we instead need to create a channenl (ap
 
 
 
-# Read Me
+# Frontend
 
-- 18/Sep/2022
+NPM Packages:
 
-<img src="https://res.cloudinary.com/huanyuli/image/upload/v1663511861/blandBook/Screen_Shot_2022-09-18_at_11.55.11_pm_n5p7md.png">
+- React-bootstrap
+- Action-cable-react
+- Axios
+- React-draft-wysiwyg
+- Draft-js
+- Draftjs-to-html
+- React-router-dom
+- Google-map-react
+- Gh-pages
 
 
-I rewrite the structure, now using `./components/Homepage.jsx` as the home page, but still keep the originial `App.js` code.
+## Authorization
 
-The `Homepage.jsx` will use `state` to store `current user`, `search results`, `chat room` etc. information to easily shared with other components.
 
- - `current user` infomation gets from the component `./components/CurrentUserInfo.jsx`
- - `search results` infomation gets from the component `./components/SearchForm.jsx`   
-    *(Just search template at this stage, need to discuss what we need to do here)*
-- `chat room` infomation gets from the component `./components/ChatRoom.jsx`   
-    *(need to discuss how to use `ChatroomShow` component)*
+## Search Function
+
+It searches the name of users and the content of posts in one place.
+It uses React-bootstrap `Modal` and `ListGroup` to style.
+The search results are clickable and can jump to specific routes or `follow | unfollow` other users.
+
+`follow` and `unfollow` functions will 'phone' `FriendsList` component to update list by 'Homepage' component
+
 
