@@ -3,6 +3,10 @@
 
 ## A lightweight social media platform using React and Ruby on Rails
 
+**App Links:**
+- [Backend Heroku](https://blandbook-server.herokuapp.com)
+- [Frontend GitHub Pages](https://0huanyuli0.github.io/blandbook-frontend)
+
 **Authors**:
 
 - Huanyu Daniel Li [github link](https://github.com/0HuanyuLi0)
@@ -75,6 +79,8 @@ NPM Packages:
 
 ## Authorization
 
+## Google Map React
+
 
 ## Search Function
 
@@ -84,4 +90,6 @@ The search results are clickable and can jump to specific routes or `follow | un
 
 `follow` and `unfollow` functions will 'phone' `FriendsList` component to update list by 'Homepage' component
 
+## Text Editor
+React-draft-wysiwyg, Draft-js, Draftjs-to-html are used in this website as the text editor. The editor can change the text formatting, add emoji, and upload Image(url). Draftjs-to-html is used to convert raw draftjs data to html data. Then use `dangerouslySetInnerHTML={{__html: HTML_CONTENT}}` attribute to show the correct formatting.
 
