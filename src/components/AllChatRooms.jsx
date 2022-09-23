@@ -53,7 +53,7 @@ class AllChatRooms extends React.Component {
                         )}
                     <li> 
                         {
-                            <Button className="newRoom_btn" variant="warning" size="sm" href={`/#/newroom`}>Add New </Button>
+                            <Button className="newRoom_btn" variant="warning" size="sm" href={`${REACT_BASE_URL}/#/newroom`}>Add New </Button>
                         // <Link to={`/newroom/`}>Add new</Link>
                         }
                         
