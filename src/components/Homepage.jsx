@@ -13,6 +13,7 @@ import '../css/chat.css'
 import '../css/posts.css'
 import '../css/search.css'
 import '../css/newchatform.css'
+import '../css/login_signup.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Components imports
@@ -51,7 +52,8 @@ class Homepage extends React.Component {
     query:null,
     chatroomVisibility: 'visible',
     friendsVisibility: 'visible',
-    updateList:false
+    updateList:false,
+    showSignup: false,
     
   }
 
@@ -185,6 +187,16 @@ class Homepage extends React.Component {
 }
 
 
+// sign up and login form
+  handleShow = () => {
+    this.setState({showSignup: true})
+  }
+
+  handleNotShow =() => {
+    this.setState({showSignup: false})
+  }
+
+
   render() {
     return (
 
@@ -257,17 +269,43 @@ class Homepage extends React.Component {
 
 
               <div className="container">
+              
+                <div className='user_form'>
 
-                {this.state.currentUser === null
-                  &&
-                  <Login setCurrentUserLogin={this.setCurrentUser} />
-                }
-                <br />
+                  {this.state.currentUser === null
+                    &&
+                    <div style={this.state.showSignup ? {display: 'none'} : {}} className='login_form'>
+                    <Login setCurrentUserLogin={this.setCurrentUser} />
+                    <br />
+                    Don't have an account? 
+                    <br />
+                    You are welcome to
+                    <br />
+                    <Button variant="primary" size="sm" onClick={this.handleShow}>Sign Up</Button>
 
-                {this.state.currentUser === null
-                  &&
-                  <SignUpMain setCurrentUserSignup={this.setCurrentUser} />
-                }
+                    <br />
+                    </div>
+                  }
+                  <br />
+
+
+                  {this.state.currentUser === null
+                    &&
+                    <div style={this.state.showSignup ? {} : { display: 'none' }} className='signup_form'>
+                      <SignUpMain setCurrentUserSignup={this.setCurrentUser} />
+                    <br />
+                    Already have an account? You can
+                    <br />
+                    <Button variant="outline-primary" size="sm" onClick={this.handleNotShow}>Back to Login</Button>
+                    <br /><br />
+                    </div>
+                  }
+
+                </div>
+
+
+
+
 
                 {this.state.currentUser
                   &&

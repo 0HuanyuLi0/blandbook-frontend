@@ -1,0 +1,26 @@
+
+/* div {
+    border: 1px solid red;
+} */
+
+.user_form {
+    margin: 0 auto;
+}
+
+.signup_form {
+    width: 100%;
+    text-align: center;
+}
+
+.login_form {
+    width: 100%;
+    text-align: center;
+}
+
+.signupMain li {
+    list-style: none;
+    color: rgb(163, 1, 1);
+    font-size: 15px;
+}
+
+

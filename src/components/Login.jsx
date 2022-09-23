@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Button from 'react-bootstrap/Button';
 import '../css/shows.css'
 import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
@@ -47,7 +48,7 @@ class Login extends React.Component{
     return(
       <form onSubmit={this.handleSubmit} >
 
-        <label>Login Form</label>
+        <label>Login</label>
         <br/>
         
         <input

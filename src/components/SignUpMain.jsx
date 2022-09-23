@@ -7,6 +7,7 @@ import axios from 'axios'
 
 import SignUp from './SignUp';
 import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
+import '../css/login_signup.css'
 
 
 class SignUpMain extends React.Component{
@@ -69,15 +70,16 @@ class SignUpMain extends React.Component{
 
     render(){
         return (
-                <div className="signup_form">
+                <div className="signupMain">
 
                    <SignUp notifySignUp={this.setNewUser} />
+                    <br />
 
                     {this.state.error
                     &&
                     this.state.error.map((er,index) =>
                     <li key={index}>
-                        <p>{er}</p>
+                        {er}
                     </li>
                     )}
                 </div>
