@@ -75,10 +75,10 @@ class ChatroomFeed extends React.Component {
     updateMessages = () => {
         //updatemessages should eb called below
         let newMessages = this.props.messages.map(message=> message)
-        console.log("This is new message", newMessages);
+        // console.log("This is new message", newMessages);
         // this.showMessages() //arg should be new props
         this.props.allMessages.forEach(message=> newMessages.push(message))
-        console.log("This is the updated message", newMessages);
+        // console.log("This is the updated message", newMessages);
         return newMessages //I need to make this the object we iterate over
         
     }

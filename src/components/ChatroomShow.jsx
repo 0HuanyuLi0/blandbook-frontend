@@ -10,22 +10,64 @@ class ChatroomShow extends React.Component {
     state = {
         allMessages: [],
         newMessage: '',
-        roomSubscription: null
-
+        roomSubscription: null,
+        visible: 'visible',
+        chatroom_id: null,
     }
+
+    
 
     componentDidMount() {
         if (this.props.roomData.messages) {
             this.setState({
-                allMessages: this.props.roomData.messages
+                allMessages: this.props.roomData.messages,
+                visible: 'visible',
+                chatroom_id: this.props.currentRoom.id
             })
 
 
         } else {
+            this.setState({
+                visible: 'visible'
+            })
             return
         }
 
+        this.setState({
+            visible: 'visible'
+        })
 
+       
+
+
+    }
+
+    componentDidUpdate(prevProps){
+        console.log(("###############"));
+        console.log(prevProps);
+        if (prevProps !== this.props){
+           
+                this.setState({
+                    visible: 'visible',
+                    allMessages:[]
+                })
+    
+            }
+        }
+        
+        
+       
+    
+
+    componentDidUnmount(){
+        
+        this.setState({
+                visible: 'visible'
+            })
+
+        
+        
+       
     }
 
 
@@ -56,13 +98,14 @@ class ChatroomShow extends React.Component {
         })
 
         //Define the message to match the model created in Rails. Might need to add some more details here to enable the other features in message (such as likes or dislikes).
-        console.log('The content of userId is', this.props.currentUser.id);
+        // console.log('The content of userId is', this.props.currentUser.id);
 
         const message = {
 
             content: this.state.newMessage,
             user_id: this.props.currentUser.id,
-            chatroom_id: this.props.roomData.chatroom.id
+            chatroom_id: this.props.roomData.chatroom.id,
+            token:  localStorage.getItem("jwt")
 
         }
 
@@ -114,13 +157,26 @@ class ChatroomShow extends React.Component {
         }
     }
 
+    hideChat = () => {
+        this.setState({
+            visible: 'hidden'
+        })
+    }
 
     render() {
 
         return (
 
-            <div className="chatroom">
-                <h2 className="chatroom_title">Welcome to {this.props.roomData.chatroom.title}</h2>
+            <div className="chatroom" id={this.state.visible}>
+                <div className="chatroomTopRow">
+                    <h2 className="chatroom_title">Welcome to {this.props.roomData.chatroom.title}</h2>
+
+                   
+                    
+                </div>
+
+                <img src={process.env.PUBLIC_URL+"pictures/x-circle.png"} className="closeButton" onClick={ () => this.hideChat()}/>    
+               
                 <div className="chatroomMain">
                     <div className="chatroom_sidebar">
 

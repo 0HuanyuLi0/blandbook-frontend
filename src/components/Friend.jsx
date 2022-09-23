@@ -12,9 +12,9 @@ class Friend extends React.Component{
         
     }
 
-    updateFriends = (resp) => {
-        console.log('Response is', resp);
-    }
+    // updateFriends = (resp) => {
+    //     console.log('Response is', resp);
+    // }
     
 
     unfollow = async(userId, followerId) => {

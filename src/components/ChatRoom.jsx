@@ -15,7 +15,7 @@ class ChatRoom extends React.Component {
 
     getMessages = async (room_id) => {
         const res = await axios.get(`${RAILS_BASE_URL}/chatrooms/${room_id}`)
-        console.log(res.data.messages);
+        
 
         this.setState({
             messages: res.data.messages,
@@ -25,7 +25,7 @@ class ChatRoom extends React.Component {
 
     componentDidMount() {
         this.getMessages(this.props.room.id)
-        console.log(this.props.room.id);
+      
     }
 
     componentDidUpdate() {
