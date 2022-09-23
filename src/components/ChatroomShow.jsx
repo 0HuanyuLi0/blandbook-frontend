@@ -175,7 +175,7 @@ class ChatroomShow extends React.Component {
                     
                 </div>
 
-                <img src={process.env.PUBLIC_URL+"pictures/x-circle.png"} className="closeButton" onClick={ () => this.hideChat()}/>    
+                <img src={process.env.PUBLIC_URL+"/pictures/x-circle.png"} className="closeButton" onClick={ () => this.hideChat()}/>    
                
                 <div className="chatroomMain">
                     <div className="chatroom_sidebar">
