@@ -3,11 +3,17 @@
     border: 1px solid red;
 } */
 
-.user_location{
+
+.user_map{
     width: 20vw;
     height: 30vh;
     position: relative;
-    margin: 0 10%;
+    margin: 0 6%;
+}
+
+.user_location {
+    box-sizing: border-box;
+    height:40vh;
 }
 
 .mapMarker {
@@ -31,7 +37,7 @@
     border-radius: 50%;
 }
 
-.user_location_info{
+.user_map_info{
     padding: 0 29%;
     font-weight: bold;
     font-size: 100%;
@@ -42,7 +48,7 @@
     width: 100%;
     position: absolute;
     top: 39px;
-    left: 110%;
+    left: 105%;
 }
 
 

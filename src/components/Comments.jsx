@@ -160,8 +160,8 @@ class Comments extends React.Component {
                             onClick={e => this.handleClick(comment.id, comment.like, index, 'like', e)}
                         >
                             thumb_up
-                        </button>
-                        |
+                        </button> 
+                        {' '}|{' '} 
                         {comment.dislike}
                         <button 
                             className="material-symbols-outlined"
@@ -171,11 +171,8 @@ class Comments extends React.Component {
                         </button>
                     </Badge>
 
-                    <p>
-                        like:{comment.like}
-                        |
-                        dislike:{comment.dislike}
-                    </p>
+                    <br /><br />
+
 
                     <figcaption class="blockquote-footer">
                     <em>{comment.user.screen_name} </em>

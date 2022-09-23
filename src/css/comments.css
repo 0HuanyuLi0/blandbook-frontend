@@ -3,6 +3,11 @@
     vertical-align: middle;
   }
 
+  .badge_like button {
+    border: none;
+    cursor: pointer;
+  }
+
   .filled {
 
     font-variation-settings:
@@ -24,3 +29,10 @@
   button{
     border: none;
   }
+  .back_button {
+    position: relative;
+    right: 5%;
+  }
+
+
+
