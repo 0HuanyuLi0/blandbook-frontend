@@ -6,7 +6,7 @@
 .user_location{
     width: 20vw;
     height: 30vh;
-    /* position: relative; */
+    position: relative;
     margin: 0 10%;
 }
 
