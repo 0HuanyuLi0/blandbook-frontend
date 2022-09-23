@@ -34,8 +34,8 @@ class ChatroomWebSocket extends React.Component {
         },
 
         {
-            // connected:  () => {},
-            // disconnected: ()=> {}, 
+            connected:  () => {},
+            disconnected: ()=> {}, 
             received: (updatedRoom) => {
                 // console.log('The updatedroom we received is', updatedRoom)
                 this.props.updateApp(updatedRoom)

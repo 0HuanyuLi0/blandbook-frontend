@@ -54,7 +54,7 @@ class ChatroomCreate extends React.Component {
                 <div className="topRowChatCreate">
                     <h2>Create a new chatroom</h2>
                     <Router>
-                        <Link to="/"> <img src={process.env.PUBLIC_URL+"pictures/x-circle.png"} className="closeButton"/></Link>
+                        <Link to="/"> <img src={process.env.PUBLIC_URL+"/pictures/x-circle.png"} className="closeButton"/></Link>
 
                     </Router>
 

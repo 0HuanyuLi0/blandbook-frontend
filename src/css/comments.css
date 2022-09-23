@@ -18,7 +18,7 @@
   }
   
   .unfilled {
-  
+
     font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -26,6 +26,9 @@
     'opsz' 48
   }
 
+  button{
+    border: none;
+  }
   .back_button {
     position: relative;
     right: 5%;
