@@ -49,6 +49,9 @@ class Homepage extends React.Component {
     },
     showSearchResults:false,
     query:null,
+    chatroomVisibility: 'visible',
+    friendsVisibility: 'visible',
+    updateList:false
     
   }
 
@@ -89,7 +92,7 @@ class Homepage extends React.Component {
   }
 
   componentDidMount() {
-
+    console.log('PATH: ',RAILS_BASE_URL);
     console.log(this.state.currentUser);
 
     // want to check if the user is logged in when we visit
@@ -152,6 +155,34 @@ class Homepage extends React.Component {
       .catch(err => console.warn(err))
   }
 
+  toggleChat = () => {
+      
+      if(this.state.chatroomVisibility === 'visible'){
+        this.setState({
+          chatroomVisibility: 'invisible'
+        })
+      } else{
+      
+        this.setState({
+          chatroomVisibility: 'visible'
+        });
+      }
+  }
+
+  //Hide and show the Followers/ Following panel
+  toggleFriends = () => {
+      
+    if(this.state.friendsVisibility === 'visible'){
+      this.setState({
+        friendsVisibility: 'invisible'
+      })
+    } else{
+    
+      this.setState({
+        friendsVisibility: 'visible'
+      });
+    }
+}
 
 
   render() {
@@ -162,16 +193,16 @@ class Homepage extends React.Component {
         {/* This is the template layout */}
 
         <Router>
-          <div className='container'>
+          <div className='container outter_container'>
             {/* flex container */}
             <nav>
               {/* all a_tags here */}
 
               <Link to="#">{Icons.settings}</Link>
               <Link to="/">{Icons.home}</Link>
-              <Link to="#">{Icons.account}</Link>
-              <Link to="#">{Icons.chat}</Link>
-              <Link to="#">{Icons.groupChat}</Link>
+              <Link to="#" onClick={() => {this.toggleFriends()}}>{Icons.account}</Link>
+              <Link to="#" onClick={() => {this.toggleChat()}}>{Icons.chat}</Link>
+              <Link to="#" onClick={() => {this.toggleChat()}}>{Icons.groupChat}</Link>
               <Link to="#">{Icons.weather}</Link>
               <Link to="#">{Icons.calendar}</Link>
 
@@ -208,7 +239,18 @@ class Homepage extends React.Component {
                   showSearchResults:false
                   // close the search results
                 })
-              }} />
+                }}
+
+              phoneUpdate={
+                ()=>{
+                  this.setState({
+                    updateList:true
+                  })
+                }
+              }
+
+                
+               />
 
               {/* For search results show */}
 
@@ -238,9 +280,18 @@ class Homepage extends React.Component {
                 {this.state.currentUser //ensure got the user info first
                   &&
                   <div className="chat_container">
-                    <AllChatRooms classNames={'all_chat_rooms'} currentUser_id={this.state.currentUser.id} clickedRoom={this.getChatRoom} />
-                    <FriendsList currentUser={this.state.currentUser} update={this.state.friendsUpdate}/>
+                     <div className={this.state.chatroomVisibility}>
+                      <AllChatRooms classNames={'all_chat_rooms'} currentUser_id={this.state.currentUser.id} clickedRoom={this.getChatRoom} />
+                      </div>
+                      <div className={this.state.friendsVisibility}>
+                      <FriendsList currentUser={this.state.currentUser} update={this.state.updateList} resetUpdate={()=>{
+                      this.setState({
+                        updateList:false
+                      })
+                    }} />
+                      </div>
 
+                   
 
 
                     {this.state.room //ensure got the room id first
@@ -257,18 +308,14 @@ class Homepage extends React.Component {
                         currentUser={this.state.currentUser}
                         currentRoom={this.state.room}
                       />
-
-                      //   ) : (
-                      //     <Redirect to ='/' />
-                      //   )
-                      // }} />
-
+                      
+                 
 
 
 
                     }
 
-                    {/* TODO need to find another location to put map */}
+                   
                     < UserLocation />
 
                   </div>

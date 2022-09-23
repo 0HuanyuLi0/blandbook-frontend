@@ -14,9 +14,10 @@ body {
 
 .App {
   background-color: rgb(251, 196, 183);
-  width: 98%;
+  width: 80%;
   margin: 1vw auto;
   border-radius: 20px;
+  padding: 0;
 }
 
 .center {
@@ -26,7 +27,11 @@ body {
 .container {
   display: flex;
   border-radius: 20px;
+  /* border: 1px solid red; */
+  width: 100%;
 }
+
+
 
 nav a {
   background: inherit;
@@ -70,3 +75,37 @@ p{
   vertical-align: middle;
 }
 
+.visible{
+   animation: arrivein 2s;
+}
+  @keyframes arrivein {
+    from {
+      margin-left: 0%;
+      width: 0%;
+          
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+
+  .invisible{
+    animation: arriveOut 2s;
+ }
+
+
+ @keyframes arriveOut {
+  from {
+    margin-left: 0%;
+    width: 100%;
+        
+  }
+
+  to {
+    margin-left: 0%;
+    width: 0%;
+  }
+}
