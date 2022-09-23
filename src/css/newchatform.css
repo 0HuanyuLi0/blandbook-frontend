@@ -3,11 +3,17 @@
     margin-top: 25vh;
     width: 80%;
     padding: 20px;
+    min-height: 40vh;
     text-align: center;
+    background-color: rgba(183, 183, 183, 0.8);
 }
 
 
 
+.form-group{
+    margin: 20px;
+    text-align: left;
+}
 
 .topRowChatCreate{
     display: flex;
@@ -21,3 +27,4 @@
 #newChatForm {
     padding: 10px;
 }
+
