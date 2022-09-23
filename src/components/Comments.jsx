@@ -134,8 +134,7 @@ class Comments extends React.Component {
                 <p className="fs-5 text-center"><strong>Post</strong></p>
                 <p className="fs-6 post_title" dangerouslySetInnerHTML={{__html: this.state.postDetails.title}}></p>
                 <figcaption class="blockquote-footer">
-                    <em>{this.state.postDetails.postUser} 
-                    on:{new Date(this.state.postDetails.postDate).toLocaleDateString("en-AU", options)}</em>
+                    <em>{this.state.postDetails.postUser} on:{new Date(this.state.postDetails.postDate).toLocaleDateString("en-AU", options)}</em>
                 </figcaption>
 
                 <NewComment currentUser = {this.props.currentUser} currentPostId = {this.props.match.params.postId} createNewComment = {this.getCommentDetails} />

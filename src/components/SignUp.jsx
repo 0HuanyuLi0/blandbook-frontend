@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 class SignUp extends React.Component{
@@ -46,7 +47,7 @@ class SignUp extends React.Component{
         return(
             <form onSubmit={this.handleSubmit}>
 
-                <label>Sign Up Form</label>
+                <label>Sign Up</label>
                 <br/>
 
                 <input 
