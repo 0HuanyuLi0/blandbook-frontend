@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import Form from 'react-bootstrap/Form'
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 class ChatroomCreate extends React.Component {

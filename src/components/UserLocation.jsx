@@ -6,7 +6,7 @@ import '../css/users.css';
 import '../App.css';
 
 import Icons from './Icons';
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 const GMAPS_API_KEY = 'AIzaSyADkhbnJGwJi7ykabSqHuwM9ibeSwI0NkE';
 

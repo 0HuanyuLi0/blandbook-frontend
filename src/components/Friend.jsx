@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import FriendsList from "./FriendsList";
 import '../css/friends.css'
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 class Friend extends React.Component{
 
     state ={

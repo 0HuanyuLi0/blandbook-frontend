@@ -7,7 +7,7 @@
 import React from "react";
 import axios from "axios";
 import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 import NewComment from "./NewComment";
 
 
@@ -43,7 +43,7 @@ class Comments extends React.Component {
     getCommentDetails = async() => {
         try{
             
-            const res = await axios.get(`${RAILS_BASE_URL}/${this.state.postId}.json`)
+            const res = await axios.get(`${RAILS_BASE_URL}/posts/${this.state.postId}.json`)
             
             this.setState({
                 postId:this.props.match.params.postId,

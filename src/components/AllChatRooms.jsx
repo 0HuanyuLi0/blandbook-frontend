@@ -3,7 +3,7 @@ import axios from "axios";
 import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
 import ChatroomCreate from "./ChatroomCreate";
 import Button from 'react-bootstrap/Button';
-import RAILS_BASE_URL from './baseurl'
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 

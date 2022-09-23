@@ -6,7 +6,7 @@ import axios from 'axios'
 // import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
 import SignUp from './SignUp';
-import RAILS_BASE_URL from './baseurl' 
+import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
 class SignUpMain extends React.Component{
