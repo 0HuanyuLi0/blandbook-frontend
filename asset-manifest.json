@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/blandbook-frontend/static/css/main.07ce1a74.css",
-    "main.js": "/blandbook-frontend/static/js/main.3c7b97ef.js",
+    "main.js": "/blandbook-frontend/static/js/main.32208dc8.js",
     "service-worker.js": "/blandbook-frontend/service-worker.js",
     "index.html": "/blandbook-frontend/index.html",
     "main.07ce1a74.css.map": "/blandbook-frontend/static/css/main.07ce1a74.css.map",
-    "main.3c7b97ef.js.map": "/blandbook-frontend/static/js/main.3c7b97ef.js.map"
+    "main.32208dc8.js.map": "/blandbook-frontend/static/js/main.32208dc8.js.map"
   },
   "entrypoints": [
     "static/css/main.07ce1a74.css",
-    "static/js/main.3c7b97ef.js"
+    "static/js/main.32208dc8.js"
   ]
 }
