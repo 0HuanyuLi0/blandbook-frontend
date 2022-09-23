@@ -23,6 +23,12 @@ class FriendsList extends React.Component {
        
     }
 
+    componentDidUpdate(){
+        if (this.props.update) {
+            this.getFriendsList().then(this.props.resetUpdate())
+
+        }
+    }
  
 
 

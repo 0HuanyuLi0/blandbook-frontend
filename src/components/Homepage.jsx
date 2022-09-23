@@ -49,6 +49,7 @@ class Homepage extends React.Component {
     },
     showSearchResults:false,
     query:null,
+    updateList:false
     
   }
 
@@ -89,7 +90,7 @@ class Homepage extends React.Component {
   }
 
   componentDidMount() {
-
+    console.log('PATH: ',RAILS_BASE_URL);
     console.log(this.state.currentUser);
 
     // want to check if the user is logged in when we visit
@@ -162,7 +163,7 @@ class Homepage extends React.Component {
         {/* This is the template layout */}
 
         <Router>
-          <div className='container'>
+          <div className='container outter_container'>
             {/* flex container */}
             <nav>
               {/* all a_tags here */}
@@ -208,7 +209,18 @@ class Homepage extends React.Component {
                   showSearchResults:false
                   // close the search results
                 })
-              }} />
+                }}
+
+              phoneUpdate={
+                ()=>{
+                  this.setState({
+                    updateList:true
+                  })
+                }
+              }
+
+                
+               />
 
               {/* For search results show */}
 
@@ -239,7 +251,11 @@ class Homepage extends React.Component {
                   &&
                   <div className="chat_container">
                     <AllChatRooms classNames={'all_chat_rooms'} currentUser_id={this.state.currentUser.id} clickedRoom={this.getChatRoom} />
-                    <FriendsList currentUser={this.state.currentUser} update={this.state.friendsUpdate}/>
+                    <FriendsList currentUser={this.state.currentUser} update={this.state.updateList} resetUpdate={()=>{
+                      this.setState({
+                        updateList:false
+                      })
+                    }}/>
 
 
 
