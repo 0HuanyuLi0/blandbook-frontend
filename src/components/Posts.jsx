@@ -63,8 +63,11 @@ class Posts extends React.Component {
             newNumber += 1
             e.target.className = 'material-symbols-outlined filled'
         } else {
-            newNumber -= 1
-            e.target.className = 'material-symbols-outlined unfilled'
+            if (newNumber > 0) {
+                newNumber -= 1
+                e.target.className = 'material-symbols-outlined unfilled'
+               
+            }
         }
 
         adjust = {
