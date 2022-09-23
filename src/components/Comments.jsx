@@ -23,7 +23,7 @@ class Comments extends React.Component {
 
 
     state = {
-        postId: this.props.match.params.postId,
+        postId:this.props.match.params.postId,
         commentDetails: null,
         like: {},
         dislike: {},
@@ -36,13 +36,15 @@ class Comments extends React.Component {
 
 
     componentDidMount() {
-
+       
         this.getCommentDetails()
+        console.log('=====:',this.props.history.location.pathname.split('/').slice(-1)[0]);
         
     }
 
     componentDidUpdate(){
        if (this.props.history.location.pathname.split('/').slice(-1)[0] !== this.state.postId) {
+        
         this.getCommentDetails()
        }
     }
@@ -50,11 +52,12 @@ class Comments extends React.Component {
     getCommentDetails = async() => {
         try{
             
-            const res = await axios.get(`${RAILS_BASE_URL}/posts/${this.state.postId}.json`)
+            const res = await axios.get(`${RAILS_BASE_URL}/posts/${this.props.history.location.pathname.split('/').slice(-1)[0]}.json`)
             
             this.setState({
-                postId:this.props.match.params.postId,
+                
                 // sort by created time
+                postId:this.props.history.location.pathname.split('/').slice(-1)[0],
                 commentDetails: res.data.comments.sort((a,b) => {
                     return new Date(a.created_at).getTime() - 
                         new Date(b.created_at).getTime()
