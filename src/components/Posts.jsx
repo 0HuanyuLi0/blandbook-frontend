@@ -118,7 +118,9 @@ class Posts extends React.Component {
                                 <br />
                                 {this.props.currentUser
                                     &&
-                                    <Link to={`/comments/${post.id}`}>Comments</Link>
+                                    <Link to={`/comments/${post.id}`}>
+                                        <Button variant="primary" size="sm">Comments</Button>
+                                    </Link>
                                 }
 
                                 {' | '}

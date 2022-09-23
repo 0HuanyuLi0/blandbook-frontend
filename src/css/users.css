@@ -1,16 +1,23 @@
 
+/* div {
+    border: 1px solid red;
+} */
+
 .user_location{
-    width: 35vw;
-    height: 50vh;
+    width: 20vw;
+    height: 30vh;
+    /* position: relative; */
+    margin: 0 10%;
 }
 
 .mapMarker {
-    color: #f06292;
-    background-color: #f06292;
+    color: #f43374;
+    background-color: #f43374;
     border-radius: 50%;
     width: 8px;
     height: 8px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .mapMarker:hover {
@@ -19,13 +26,25 @@
     transform: scale(1.2);
 }
 
-.mapMarker .details {
-    display: none;
+.map_avatar {
+    width: 1.5vw;
+    border-radius: 50%;
 }
 
-.mapMarker:hover .details{
-    display: inline-block;
+.user_location_info{
+    padding: 0 29%;
+    font-weight: bold;
+    font-size: 100%;
 }
+
+.click_user_info {
+    /* padding-left: 29%; */
+    width: 100%;
+    position: absolute;
+    top: 39px;
+    left: 110%;
+}
+
 
 
 
