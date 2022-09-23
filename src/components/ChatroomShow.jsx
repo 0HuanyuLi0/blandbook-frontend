@@ -48,7 +48,8 @@ class ChatroomShow extends React.Component {
         if (prevProps !== this.props){
            
                 this.setState({
-                    visible: 'visible'
+                    visible: 'visible',
+                    allMessages:[]
                 })
     
             }

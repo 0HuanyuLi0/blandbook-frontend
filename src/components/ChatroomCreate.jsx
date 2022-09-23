@@ -1,7 +1,10 @@
 import axios from "axios";
 import React from "react";
-import Form from 'react-bootstrap/Form'
-import RAILS_BASE_URL from './baseurl' 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
+
+import RAILS_BASE_URL from './baseurl'; 
+import { Route, HashRouter as Router, Link, Redirect } from 'react-router-dom';
 
 
 class ChatroomCreate extends React.Component {
@@ -48,20 +51,29 @@ class ChatroomCreate extends React.Component {
         return(
 
             <div className="newRoomContainer">
-                <form onSubmit={this.handleSubmit}>
+                <div className="topRowChatCreate">
+                    <h2>Create a new chatroom</h2>
+                    <Router>
+                        <Link to="/"> <img src={process.env.PUBLIC_URL+"pictures/x-circle.png"} className="closeButton"/></Link>
+
+                    </Router>
+
+                </div>
+
+                <Form onSubmit={this.handleSubmit} id="newChatForm">
                 <div className="form-group">
-                    <label for="chatroomTitle">Title</label>
+                    <label for="chatroomTitle">Chatroom Title</label>
                     <input type="text" class="form-control"  placeholder="What is this chatroom all about?" onChange={this.handleInput}/>
                 </div>
                 
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputFile"> Add an image</label>
                     <input type="file" id="exampleInputFile" onChange={this.addFile}/>
-                    <p class="help-block">Example block-level help text here.</p>
+                    <p class="help-block">Chose a thumbnail image for your chat.</p>
                 </div>
                 
-                <submit><button type="submit" className="btn btn-default">Create</button></submit>
-                </form>
+                <submit><button type="submit" className="btn btn-primary">Create</button></submit>
+                </Form>
             </div>
         )
     }

@@ -12,6 +12,7 @@ import '../css/shows.css'
 import '../css/chat.css'
 import '../css/posts.css'
 import '../css/search.css'
+import '../css/newchatform.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Components imports
