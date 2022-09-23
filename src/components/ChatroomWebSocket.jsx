@@ -5,9 +5,9 @@ import ActionCable from 'action-cable-react-jwt';
 let RAILS_BASE_WS;
 if( process.env.NODE_ENV === 'development'){
 
-  RAILS_BASE_WS = 'wss://localhost:3000';
+  RAILS_BASE_WS = 'ws://localhost:3000';
 } else {
-  RAILS_BASE_WS = 'wss://blandbook-server.herokuapp.com';
+  RAILS_BASE_WS = 'ws://blandbook-server.herokuapp.com';
 }
 
 class ChatroomWebSocket extends React.Component {
