@@ -112,10 +112,11 @@ class UserLocation extends React.Component {
  render(){
        
         return (
-                this.state.users &&
+            <div className='user_location'>
+                {this.state.users &&
                 // the bound would work before getting the user informaiton, so we run the following after we get user info
-                <div  className='user_location'>
-                    <p className='user_location_info'>Users Locations</p>
+                <div  className='user_map'>
+                    <p className='user_map_info'>Users Locations</p>
                     <GoogleMapReact
                         // onClick={this.handleMapClick}
                         bootstrapURLKeys = {{key: GMAPS_API_KEY}}
@@ -152,6 +153,8 @@ class UserLocation extends React.Component {
                     }
 
                 </div>
+                }
+            </div>
         );
     } // render()
 

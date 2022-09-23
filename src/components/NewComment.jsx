@@ -9,6 +9,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from "draftjs-to-html";
 
+import '../css/comments.css'
 import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 class NewComment extends React.Component {
@@ -79,7 +80,7 @@ class NewComment extends React.Component {
                 </Button>
 
                 <Link to="/" >
-                    <Button variant="outline-secondary" size="sm" className="float-end" >
+                    <Button variant="outline-secondary" size="sm" className="back_button float-end" >
                         Go Back to Post
                     </Button> 
                 </Link>
