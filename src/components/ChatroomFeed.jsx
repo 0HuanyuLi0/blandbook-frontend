@@ -12,7 +12,7 @@ class ChatroomFeed extends React.Component {
         totalMessages: [],
     }
     componentDidMount(){
-       
+        
         
         if(this.props.chatroom.allMessages){
             
@@ -21,14 +21,7 @@ class ChatroomFeed extends React.Component {
             console.log('Loading');
         }
 
-        if(this.props.messages){
-            // this.showMessages(this.props.messages)
-            this.setState({
-                totalMessages: this.props.allMessages, ...this.props.messages
-            })
-        }
-
-
+        
     }
 
     componentDidUpdate(prevProps){
@@ -36,7 +29,7 @@ class ChatroomFeed extends React.Component {
        if(this.props.chatroom.allMessages !== prevProps.chatroom.allMessages){
            
             this.showMessages(this.props.allMessages)
-            this.updateMessages()
+            
               
             
         }else{
@@ -45,41 +38,26 @@ class ChatroomFeed extends React.Component {
 
         if(this.props.chatroom !== prevProps.chatroom){
             this.setState({
-                totalMessages: []
+                totalMessages: [] //for moving from one room to the next
             })
 
-            this.showMessages(this.updateMessages())
+            this.showMessages(this.props.allMessages)
         
         }
 
         
     }
-
        
     showMessages( allMessages ){
 
-        this.updateMessages()
-        //sortmessages firs 
+        //sort messages first, showing newest at the bottom 
         const sortedMessages = allMessages.sort((a, b)=> {
             return a.created_at - b.created_at
         })
-        return sortedMessages.reverse().map( message =>{
+        return sortedMessages.map( message =>{
             
-        
-
-            return <ChatroomMessage key={message.id} message={message.content} senderId={message.user_id} userId={this.props.user} />
+           return <ChatroomMessage key={message.id} message={message.content} senderId={message.user_id} userId={this.props.user} />
         })
-        
-    }
-
-    updateMessages = () => {
-        //updatemessages should eb called below
-        let newMessages = this.props.messages.map(message=> message)
-        // console.log("This is new message", newMessages);
-        // this.showMessages() //arg should be new props
-        this.props.allMessages.forEach(message=> newMessages.push(message))
-        // console.log("This is the updated message", newMessages);
-        return newMessages //I need to make this the object we iterate over
         
     }
 
@@ -96,7 +74,7 @@ class ChatroomFeed extends React.Component {
                 { 
                     this.props.chatroom.messages
                     ? 
-                    (this.showMessages(this.updateMessages()))
+                    (this.showMessages(this.props.allMessages))
                     :
                     (<h3>Be the first to post!</h3>) 
 

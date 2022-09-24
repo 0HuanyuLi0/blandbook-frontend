@@ -38,7 +38,7 @@ class Comments extends React.Component {
     componentDidMount() {
        
         this.getCommentDetails()
-        console.log('=====:',this.props.history.location.pathname.split('/').slice(-1)[0]);
+        // console.log('=====:',this.props.history.location.pathname.split('/').slice(-1)[0]);
         
     }
 

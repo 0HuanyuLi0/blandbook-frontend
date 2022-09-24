@@ -20,7 +20,7 @@ class ChatroomWebSocket extends React.Component {
 
 
 
-        CableApp.cable = ActionCable.createConsumer(`${RAILS_BASE_WS}/cable`)
+        CableApp.cable = ActionCable.createConsumer(`${RAILS_BASE_WS}/cable`, token)
 
         //This is needed to render data on the ChatroomShow component. It grabs the room id_#, 
         this.props.getRoomData(this.props.currentRoom.id)

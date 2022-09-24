@@ -27,7 +27,7 @@ class CreatePost extends React.Component {
             editorState:editorState,
             post:draftToHtml( this.state.editorState)
         })
-        console.log(draftToHtml( this.state.editorState))
+        // console.log(draftToHtml( this.state.editorState))
         // this.setState({ post: e.target.value })
     }
 

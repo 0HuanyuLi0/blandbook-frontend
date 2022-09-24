@@ -35,7 +35,7 @@ class SearchResults extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log('search results', this.props.results);
+        
         if (this.props.results !== this.state.results) {
             this.setState({
                 results: this.props.results,

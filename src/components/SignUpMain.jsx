@@ -36,7 +36,7 @@ class SignUpMain extends React.Component{
                 is_admin: object.is_admin 
             });
 
-            console.log('setNewUser Response', res.data); // for test
+            // console.log('setNewUser Response', res.data); // for test
 
             localStorage.setItem("jwt", res.data.auth_token.token)
             this.props.setCurrentUserSignup();

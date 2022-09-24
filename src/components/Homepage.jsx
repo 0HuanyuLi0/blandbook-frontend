@@ -65,7 +65,7 @@ class Homepage extends React.Component {
       currentUser: userInfo,
       loading: false
     })
-    console.log(userInfo.id);
+    
   }
 
   getQueryResults = (resutls,query) => {
@@ -75,7 +75,7 @@ class Homepage extends React.Component {
       showSearchResults:true,
       query:query
     })
-    console.log('Query from Search Form: ', resutls);
+    
 
   }
 
@@ -88,14 +88,13 @@ class Homepage extends React.Component {
 
     })
 
-    console.log('clicked room:', room);
+    
 
 
   }
 
   componentDidMount() {
-    console.log('PATH: ',RAILS_BASE_URL);
-    console.log(this.state.currentUser);
+    
 
     // want to check if the user is logged in when we visit
     this.setCurrentUser();
@@ -108,7 +107,7 @@ class Homepage extends React.Component {
     fetch(`${RAILS_BASE_URL}/chatrooms/${id}.json`)
       .then(response => response.json())
       .then(result => {
-        console.log('The response from the chatroom fetch was ', result)
+        
         this.setState({
           currentRoom: {
             chatroom: result,

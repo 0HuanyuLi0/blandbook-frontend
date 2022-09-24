@@ -39,38 +39,24 @@ class ChatroomShow extends React.Component {
 
        
 
-
     }
 
     componentDidUpdate(prevProps){
-        console.log(("###############"));
-        console.log(prevProps);
+       
         if (prevProps !== this.props){
            
                 this.setState({
                     visible: 'visible',
-                    allMessages:[]
+                    
                 })
     
             }
         }
         
         
-       
+  
+
     
-
-    componentDidUnmount(){
-        
-        this.setState({
-                visible: 'visible'
-            })
-
-        
-        
-       
-    }
-
-
     onSubscriptionCreate = (sub) => {
 
         this.setState({
@@ -91,57 +77,45 @@ class ChatroomShow extends React.Component {
 
     //After submission, clear the state so a new message can be added. Also prevent the submit button from refreshing the page
     submitMessage = async (e) => {
-        e.preventDefault()
+        e.preventDefault() //prevents page from reloading on submit
 
         this.setState({
-            newMessage: ''
+            newMessage: '' //clear the message, ready for a new one.
         })
 
         //Define the message to match the model created in Rails. Might need to add some more details here to enable the other features in message (such as likes or dislikes).
-        // console.log('The content of userId is', this.props.currentUser.id);
+        //The token is used to securely identify the user on the backend. 
 
         const message = {
 
             content: this.state.newMessage,
-            user_id: this.props.currentUser.id,
             chatroom_id: this.props.roomData.chatroom.id,
             token:  localStorage.getItem("jwt")
 
         }
 
 
-
-        //This actually sends the message to the backend
+        //This actually sends the message to the backend via websocket
         if (this.state.roomSubscription !== null) {
 
             this.state.roomSubscription.send(message)
 
         }
 
-
-
         // this.postMessage(message)
     }
 
 
-    updateAppStateRoom = (message) => { //newroom is an object we get back from the ChatroomWebSocket after a message has been posted.
+    updateAppStateRoom = (message) => { //message is an object we get back from the ChatroomWebSocket after a message has been posted.
 
-
-        this.setState({
-            allMessages: [message, ...this.state.allMessages]
-        })
-
-
-
-
-
-
-
-
+        //here we add the previous state 
+        this.setState(prevState => ({
+            allMessages: [...prevState.allMessages, message]
+          }))
+               
+       
 
     } //end uAS
-
-
 
 
 
@@ -189,6 +163,8 @@ class ChatroomShow extends React.Component {
 
 
                     </div>
+                    <ChatroomFeed chatroom={this.props.roomData.chatroom} messages={this.props.roomData.messages} allMessages={this.state.allMessages}  user={this.props.currentUser} />
+
                     <div className="chatroomForm">
                         <form id='chat-form' onSubmit={this.submitMessage}>
                             <h3 className="chatroom_title">Post a new message:</h3>
@@ -203,7 +179,7 @@ class ChatroomShow extends React.Component {
                     </div>
 
 
-                    <ChatroomFeed chatroom={this.props.roomData.chatroom} messages={this.props.roomData.messages} allMessages={this.state.allMessages} user={this.props.currentUser} />
+                    
 
 
                 </div>

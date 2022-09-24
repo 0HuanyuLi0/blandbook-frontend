@@ -12,11 +12,7 @@ class Friend extends React.Component{
         
     }
 
-    // updateFriends = (resp) => {
-    //     console.log('Response is', resp);
-    // }
     
-
     unfollow = async(userId, followerId) => {
         console.log('Unfollow clicked', userId, followerId);
 
@@ -26,12 +22,7 @@ class Friend extends React.Component{
             this.props.getFriendsList()
          })
          
-         
-       
-
-        
-
-        
+     
         
 
     }

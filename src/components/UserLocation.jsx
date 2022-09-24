@@ -85,7 +85,7 @@ class UserLocation extends React.Component {
     fetchUsers = async() => {
         try{
             const res = await axios.get(`${RAILS_BASE_URL}/users.json`);
-            console.log('fetchUsers', res.data);
+            // console.log('fetchUsers', res.data);
             this.setState({loading: false, users: res.data});
 
         } catch(err){
