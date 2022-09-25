@@ -19,8 +19,9 @@ class ChatroomShow extends React.Component {
 
     componentDidMount() {
         if (this.props.roomData.messages) {
+            this.fetchMessages()
             this.setState({
-                allMessages: this.props.roomData.messages,
+                
                 visible: 'visible',
                 chatroom_id: this.props.currentRoom.id
             })
@@ -37,14 +38,15 @@ class ChatroomShow extends React.Component {
             visible: 'visible'
         })
 
-       
+        //Polling version to overcome Redis depricatiton
+        setInterval(this.fetchMessages, 2000);
 
     }
 
     componentDidUpdate(prevProps){
        
         if (prevProps !== this.props){
-           
+                this.fetchMessages()
                 this.setState({
                     visible: 'visible',
                     
@@ -71,8 +73,19 @@ class ChatroomShow extends React.Component {
         })
     }
 
-    postMessage(messageObject) {
-        const res = axios.post(`${RAILS_BASE_URL}/messages/`, messageObject)
+    postMessage(message) {
+        try{
+            const res = axios.post(`${RAILS_BASE_URL}/messages/`,{
+                content:message,
+                user_id: this.props.currentUser.id, 
+                chatroom_id: this.state.chatroom_id
+            } )
+        }catch (err){
+            console.log('There was an error posting the messgae');
+        }
+
+        this.fetchMessages()
+        
     }
 
     //After submission, clear the state so a new message can be added. Also prevent the submit button from refreshing the page
@@ -96,26 +109,50 @@ class ChatroomShow extends React.Component {
 
 
         //This actually sends the message to the backend via websocket
-        if (this.state.roomSubscription !== null) {
+        // if (this.state.roomSubscription !== null) {
 
-            this.state.roomSubscription.send(message)
+        //     this.state.roomSubscription.send(message)
 
+        // }
+        this.postMessage(this.state.newMessage);
+        this.fetchMessages()
+
+        
+    } //post messgage
+
+    fetchMessages = async() => {
+        try{
+            console.log('Fetching');
+            const res = await axios.get(`${RAILS_BASE_URL}/chatrooms/${this.props.currentRoom.id}`)
+            this.setState({
+                allMessages: res.data.messages
+            })
+             
+        }catch (err){
+            console.log('There was an error posting the messgae');
         }
-
-        // this.postMessage(message)
+        
     }
 
+    
 
-    updateAppStateRoom = (message) => { //message is an object we get back from the ChatroomWebSocket after a message has been posted.
 
-        //here we add the previous state 
-        this.setState(prevState => ({
-            allMessages: [...prevState.allMessages, message]
-          }))
+    // updateAppStateRoom = (message) => { //message is an object we get back from the ChatroomWebSocket after a message has been posted.
+
+    //     //here we add the previous state 
+    //     // this.setState(prevState => ({
+    //     //     allMessages: [...prevState.allMessages, message]
+    //     //   }))
+
+    //       //For heroku deployment
+    //       const allMessages = this.fetchMessages()
+    //       this.setState({
+    //         allMessages: allMessages
+    //       })
                
        
 
-    } //end uAS
+    // } //end uAS
 
 
 
@@ -189,14 +226,14 @@ class ChatroomShow extends React.Component {
 
 
                 {/* This invisible component is the core of the chat app. It contains the details of the cable through the WS */}
-                <ChatroomWebSocket
+                {/* <ChatroomWebSocket
                     cableApp={this.props.cableApp}
                     updateApp={this.updateAppStateRoom}
                     getRoomData={this.props.getRoomData}
                     roomData={this.props.roomData}
                     currentRoom={this.props.currentRoom}
                     onSubscriptionCreate={this.onSubscriptionCreate}
-                />
+                /> */}
 
 
 
