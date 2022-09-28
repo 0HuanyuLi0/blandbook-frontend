@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 // https://0huanyuli0.github.io/blandbook-frontend/
 
 let RAILS_BASE_URL
