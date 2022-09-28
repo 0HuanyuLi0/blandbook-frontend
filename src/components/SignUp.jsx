@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
+import '../css/login_signup.css'
 import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 class SignUp extends React.Component{

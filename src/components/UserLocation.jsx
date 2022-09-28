@@ -122,6 +122,7 @@ class UserLocation extends React.Component {
                         bootstrapURLKeys = {{key: GMAPS_API_KEY}}
                         defaultCenter = {{lat: -33.7536, lng: 151.2886}}
                         defaultZoom = {14}
+                        //set yesIWantToUseGoogleMapApiInternals to true to access to Google Maps map and maps objects by using onGoogleApiLoaded
                         yesIWantToUseGoogleMapApiInternals
                         onGoogleApiLoaded={({map, maps}) => apiIsLoaded(map, maps, this.state.users)}
                     >

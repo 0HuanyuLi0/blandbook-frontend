@@ -79,7 +79,14 @@ NPM Packages:
 
 ## Authorization
 
+User can login with their exsiting account or sign up a new account with their email.
+It uses React-bootstrap `Button` to style.
+User can change to sign in form and back to log in form, after signing up user will automatically log in and ebter into their account.
+
 ## Google Map React
+
+On the DashBorad page, user can see all users location in the Google map section.
+
 
 
 ## Search Function

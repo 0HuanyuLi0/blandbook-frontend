@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button';
-import '../css/shows.css'
+import '../css/login_signup.css'
 import {RAILS_BASE_URL,REACT_BASE_URL} from './baseurl' 
 
 
