@@ -16,6 +16,7 @@
 A project as part of the General Assembly Software Intensive
 
 **Overview**:
+![DashBoard](../blandbook-frontend/public/pictures/dashboard.png)
 
 Blandbook is a social media platofrm that pulls together many of the features of sites like Facebook, Instagram, and Reddit. It allows users to set up an account, log in and see posts made by themsleves and other members of the platform. 
 You can try out Blandbook with user account brendan@gmail.com, daniel@gmail.com or lei@gmail.com with password chicken.
